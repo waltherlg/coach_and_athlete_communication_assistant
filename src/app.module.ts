@@ -6,13 +6,19 @@ import { TrimNotEmptyValidator } from './middlewares/validators';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as dotenv from 'dotenv';
+import { Athlete, AthleteSchema } from './athletes/athletes.types';
 dotenv.config();
 const mongoUri = process.env.MONGO_URL;
 
 @Module({
   imports: [
     MongooseModule.forRoot(mongoUri, { dbName: 'coaches_and_athletes' }),
-    MongooseModule.forFeature([]),
+    MongooseModule.forFeature([
+      {
+        name: Athlete.name,
+        schema: AthleteSchema,
+      }
+    ]),
     ConfigModule.forRoot(),
   ],
   controllers: [AppController,
