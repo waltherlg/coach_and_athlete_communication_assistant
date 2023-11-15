@@ -31,6 +31,18 @@ export class CreateAthleteInputModel {
     surname: string;
     @Prop({required: true})
     dateOfBirth: string;
+    @Prop({required: true})
+    createdAt: string;
   }
-  
+
   export const AthleteSchema = SchemaFactory.createForClass(Athlete);
+
+  export class AthleteDbType {
+    constructor (
+      public _id: Types.ObjectId,
+      public surname: string,
+      public name: string,
+      public dateOfBirth: string,
+      public createdAt: string,
+    ){}
+  }
