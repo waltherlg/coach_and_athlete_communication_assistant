@@ -12,6 +12,12 @@ export class AthletesRepository {
         return !!result
     }
 
+    async createAthlete(athleteDto: Athlete): Promise<string> {
+        const newAthlete = new this.athleteModel(athleteDto);
+        await newAthlete.save();
+        return newAthlete._id.toString();
+      }
+
 
 
 }
