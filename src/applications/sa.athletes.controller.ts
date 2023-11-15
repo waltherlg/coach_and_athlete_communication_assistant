@@ -9,7 +9,9 @@ export class SaAthletesController{
     async saCreateAthlete(
       @Body() athleteDto: CreateAthleteInputModel  
     ){
-        const newAtlete = { nameAndSurname: `${athleteDto.name ,athleteDto.surname, athleteDto.dateOfBirth}` }
+      console.log(athleteDto);
+      
+        const newAtlete = { name: athleteDto.name, surname: athleteDto.surname, dateOfBirth: athleteDto.dateOfBirth} 
         return newAtlete
     }
 

@@ -10,6 +10,7 @@ export class CreateAthleteInputModel {
     @StringTrimNotEmpty()
     @MaxLength(50)
     surname: string;
-    @IsDateString()
+    @StringTrimNotEmpty()
+    @MaxLength(50)
     dateOfBirth: string;
   }
