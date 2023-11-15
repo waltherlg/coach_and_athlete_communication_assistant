@@ -11,6 +11,7 @@ export class DtoFactory {
             createAthleteDto.name,
             createAthleteDto.dateOfBirth,
             new Date().toISOString(),
-        )
+        );
+        return newAthleteDto;
     }
 }

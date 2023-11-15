@@ -740,6 +740,13 @@
     path-to-regexp "3.2.0"
     tslib "2.6.2"
 
+"@nestjs/cqrs@^9.0.4":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/cqrs/-/cqrs-9.0.4.tgz#be1a01971944869e8eed64f0d69a0514b5f21e29"
+  integrity sha512-nWDF+xs4jqs6OjxFg/wVSd0NiIV9+EFCJrJNTo4VRWe78CcAaitbp56CBspUh4gKyfkci95i+EhHdEqRXKFptg==
+  dependencies:
+    uuid "9.0.0"
+
 "@nestjs/mongoose@^9.2.2":
   version "9.2.2"
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-9.2.2.tgz#104f9eb57f5f5841a96f6e4ae08a6e1904ef0b93"

@@ -7,11 +7,14 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as dotenv from 'dotenv';
 import { Athlete, AthleteSchema } from './athletes/athletes.types';
+import { CqrsModule } from '@nestjs/cqrs';
+import { AthletesRepository } from './athletes/athletes.repository';
 dotenv.config();
 const mongoUri = process.env.MONGO_URL;
 
 @Module({
   imports: [
+    CqrsModule,
     MongooseModule.forRoot(mongoUri, { dbName: 'coaches_and_athletes' }),
     MongooseModule.forFeature([
       {
@@ -25,6 +28,7 @@ const mongoUri = process.env.MONGO_URL;
     SaAthletesController],
   providers: [AppService,
     TrimNotEmptyValidator,
+    AthletesRepository,
   ],
 })
 export class AppModule {}
