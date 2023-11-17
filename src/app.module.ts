@@ -10,6 +10,7 @@ import { Athlete, AthleteSchema } from './athletes/athletes.types';
 import { CqrsModule } from '@nestjs/cqrs';
 import { AthletesRepository } from './athletes/athletes.repository';
 import { SaCreateNewAtleteUseCase } from './athletes/use-cases/sa-create-new-athlete-use-case';
+import { DtoFactory } from './helpers/dto.factory';
 dotenv.config();
 const mongoUri = process.env.MONGO_URL;
 
@@ -34,6 +35,7 @@ const useCases = [
   providers: [AppService,
     TrimNotEmptyValidator,
     AthletesRepository,
+    DtoFactory,
     ...useCases
   ],
 })
