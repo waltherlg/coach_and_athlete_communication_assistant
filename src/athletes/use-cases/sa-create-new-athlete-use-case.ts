@@ -15,6 +15,7 @@ export class SaCreateNewAtleteUseCase implements ICommandHandler<SaCreateNewAtle
     async execute(command: SaCreateNewAtleteCommand): Promise<string>{
         const newAtlete = new AthleteDbType(
             new Types.ObjectId(),
+            command.createAthleteDto.login,
             command.createAthleteDto.surname,
             command.createAthleteDto.name,
             command.createAthleteDto.dateOfBirth,

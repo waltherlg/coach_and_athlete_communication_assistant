@@ -7,6 +7,7 @@ export class DtoFactory {
     async createAthleteDto(createAthleteDto: CreateAthleteInputModel){
         const newAthleteDto = new AthleteDbType(
             new Types.ObjectId(),
+            createAthleteDto.login,
             createAthleteDto.surname,
             createAthleteDto.name,
             createAthleteDto.dateOfBirth,

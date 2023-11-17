@@ -9,8 +9,13 @@ import * as dotenv from 'dotenv';
 import { Athlete, AthleteSchema } from './athletes/athletes.types';
 import { CqrsModule } from '@nestjs/cqrs';
 import { AthletesRepository } from './athletes/athletes.repository';
+import { SaCreateNewAtleteUseCase } from './athletes/use-cases/sa-create-new-athlete-use-case';
 dotenv.config();
 const mongoUri = process.env.MONGO_URL;
+
+const useCases = [
+  SaCreateNewAtleteUseCase
+]
 
 @Module({
   imports: [
@@ -29,6 +34,7 @@ const mongoUri = process.env.MONGO_URL;
   providers: [AppService,
     TrimNotEmptyValidator,
     AthletesRepository,
+    ...useCases
   ],
 })
 export class AppModule {}

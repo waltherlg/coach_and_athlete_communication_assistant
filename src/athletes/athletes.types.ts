@@ -8,6 +8,9 @@ import mongoose, { HydratedDocument, ObjectId, Types } from 'mongoose';
 export class CreateAthleteInputModel {
     @StringTrimNotEmpty()
     @MaxLength(50)
+    login: string;
+    @StringTrimNotEmpty()
+    @MaxLength(50)
     name: string;
     @StringTrimNotEmpty()
     @MaxLength(50)
@@ -26,6 +29,8 @@ export class CreateAthleteInputModel {
     @Prop({ required: true, type: mongoose.Schema.Types.ObjectId })
     _id: Types.ObjectId;
     @Prop({required: true})
+    login: string;
+    @Prop({required: true})
     name: string;
     @Prop({required: true})
     surname: string;
@@ -40,6 +45,7 @@ export class CreateAthleteInputModel {
   export class AthleteDbType {
     constructor (
       public _id: Types.ObjectId,
+      public login: string,
       public surname: string,
       public name: string,
       public dateOfBirth: string,

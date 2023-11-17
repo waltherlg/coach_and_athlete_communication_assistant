@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from '@nestjs/mongoose';
-import { Athlete, AthleteDocument } from "./athletes.types";
+import { Athlete, AthleteDbType, AthleteDocument } from "./athletes.types";
 import { HydratedDocument, Model, Types } from 'mongoose';
 
 @Injectable()
@@ -17,6 +17,11 @@ export class AthletesRepository {
         await newAthlete.save();
         return newAthlete._id.toString();
       }
+
+    async getAthleteForSaById(athleteId): Promise<AthleteDbType | null>{
+        const athlete = await this.athleteModel.findById(athleteId)
+        return athlete
+    }
 
 
 
