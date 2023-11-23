@@ -1,12 +1,12 @@
 import { Transform } from 'class-transformer';
 import {
-    ValidatorConstraint,
-    ValidatorConstraintInterface,
-    ValidationArguments,
-    ValidationOptions,
-    registerDecorator,
-    isString,
-  } from 'class-validator';
+  ValidatorConstraint,
+  ValidatorConstraintInterface,
+  ValidationArguments,
+  ValidationOptions,
+  registerDecorator,
+  isString,
+} from 'class-validator';
 
 @ValidatorConstraint({ name: 'trimNotEmpty', async: false })
 export class TrimNotEmptyValidator implements ValidatorConstraintInterface {

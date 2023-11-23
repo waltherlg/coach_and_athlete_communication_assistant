@@ -14,9 +14,7 @@ import { DtoFactory } from './helpers/dto.factory';
 dotenv.config();
 const mongoUri = process.env.MONGO_URL;
 
-const useCases = [
-  SaCreateNewAtleteUseCase
-]
+const useCases = [SaCreateNewAtleteUseCase];
 
 @Module({
   imports: [
@@ -26,17 +24,17 @@ const useCases = [
       {
         name: Athlete.name,
         schema: AthleteSchema,
-      }
+      },
     ]),
     ConfigModule.forRoot(),
   ],
-  controllers: [AppController,
-    SaAthletesController],
-  providers: [AppService,
+  controllers: [AppController, SaAthletesController],
+  providers: [
+    AppService,
     TrimNotEmptyValidator,
     AthletesRepository,
     DtoFactory,
-    ...useCases
+    ...useCases,
   ],
 })
 export class AppModule {}
