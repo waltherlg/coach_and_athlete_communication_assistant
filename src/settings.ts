@@ -6,7 +6,7 @@ import {
   import { useContainer } from 'class-validator';
   import cookieParser from 'cookie-parser';
   import { AppModule } from './app.module';
-  import { HttpExceptionFilter } from './exception.filter';
+  import { HttpExceptionFilter } from './exeptions/exception.filter';
   
   export const addAppSettings = (app: INestApplication): INestApplication => {
     useContainer(app.select(AppModule), { fallbackOnErrors: true });
