@@ -5,7 +5,7 @@ export class CustomisableException extends HttpException {
       super(messageConstructor(field, errorMessage), status);
     }
   }
-  
+
   function messageConstructor(field: string, errorMessage: string) {
     const message = [
       {
@@ -14,4 +14,10 @@ export class CustomisableException extends HttpException {
       },
     ];
     return { message };
+  }
+
+  export class CustomNotFoundException extends HttpException {
+    constructor(field: string) {
+      super(messageConstructor(field, field + ' not found'), 404);
+    }
   }
